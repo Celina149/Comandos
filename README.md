@@ -1,12 +1,6 @@
 # Comandos
 Comandos utilizados
 ---
-title: Comandos
-author: Celina Pacheco Cruz
-date: 2024-10-01
-category: Jekyll
-layout: post
----
 ## Configuracion IP
 ### Configurando las IP del Router:
 
@@ -47,6 +41,22 @@ colca(config-router)#network 70.96.0.0
 colca(config-router)#network 70.80.0.0
 colca(config-router)#exit
 ```
+## Rutas Estaticas
+```bash
+colca# show ip interface
+colca# config t
+colca(config)# router eigrp 10
+colca(config-router)#network 70.32.0.0
+colca(config-router)#exit
+colca(config)#ip route 70.32.0.0 255.240.0.0 70.16.0.2
+colca(config)# router eigrp 10
+colca(config-router)#network 70.96.0.0
+colca(config)#ip route 70.96.0.0 255.240.0.0 70.64.0.2
+colca(config)#exit
+colca#show ip route
+colca#write
+```
+
 ## VLAN
 ### Configuracion de VLAN
 ```bash
